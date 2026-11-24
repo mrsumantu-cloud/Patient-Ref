@@ -45,8 +45,8 @@ button.primary{background:var(--accent);color:var(--accent-t);border-color:var(-
       <label>Date
         <input type="date" id="date">
       </label>
-      <label>Doctor’s Name (jemon likhben temon asbe)
-        <input type="text" id="doc" placeholder="e.g. Dr. Rahim Uddin" autocomplete="off">
+      <label>Doctor’s Name (without “Dr.”)
+        <input type="text" id="doc" placeholder="e.g. Rahim Uddin" autocomplete="off">
       </label>
       <button class="primary" id="go">Generate (Enter)</button>
       <button id="print">Print</button>
@@ -90,7 +90,7 @@ button.primary{background:var(--accent);color:var(--accent-t);border-color:var(-
   }
   function generate(){
     $("o-date").textContent=fmt(dateEl.value);
-    var n=docEl.value.trim();
+    var n=docEl.value.trim().replace(/^dr\.?\s+/i,"");
     $("o-doc").textContent=n||"[Doctor’s Name]";
   }
 
